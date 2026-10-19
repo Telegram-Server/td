@@ -70,6 +70,10 @@ go test -race ./mtproto/...
   by hand** — change the schema or the generator and run `make generate`. CI enforces this via
   `make check_generated`.
 
+- **telesrv-only RPCs** (methods between the `telesrv` server and the project's own clients)
+  follow [_schema/TELESRV_EXTENSIONS.md](_schema/TELESRV_EXTENSIONS.md). Read it before adding
+  any non-official definition.
+
 - **Schema updates** are deliberate: `make download_schema generate` pulls a new layer from
   tdesktop. Don't bump layers early (multiple in-flight layer versions cause breakage) — see
   CONTRIBUTING.md.
