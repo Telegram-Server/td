@@ -2608,6 +2608,11 @@ const (
 	SemanticMethodStoriesTogglePinned                                             SemanticID = 0x57aedf82726642fa
 	SemanticMethodStoriesTogglePinnedToTop                                        SemanticID = 0xb492de25e7b82f35
 	SemanticMethodStoriesUpdateAlbum                                              SemanticID = 0xb9d9f647d989956c
+	SemanticMethodTelesrvGetLoginPassword                                         SemanticID = 0xcfcb61aadd8a98ba
+	SemanticMethodTelesrvGetMyLoginPassword                                       SemanticID = 0xa5bb55b9a80fc681
+	SemanticMethodTelesrvSignInWithPassword                                       SemanticID = 0x683938eaba1a8d1e
+	SemanticMethodTelesrvSignUpWithPassword                                       SemanticID = 0x684f7b5a4f2c0a93
+	SemanticMethodTelesrvUpdateLoginPassword                                      SemanticID = 0x82095ff999a30630
 	SemanticMethodTestUseConfigSimple                                             SemanticID = 0xf451688934242dd9
 	SemanticMethodTestUseError                                                    SemanticID = 0x5328ae556d3568a2
 	SemanticMethodToncenterGetStreamingURL                                        SemanticID = 0x6d2c3161c0e0a658
@@ -3488,6 +3493,11 @@ const (
 	FieldStoriesUpdateAlbumDeleteStories                    FieldID = 0xb87a9050a8de8e58
 	FieldStoriesUpdateAlbumOrder                            FieldID = 0x235bbd8eaa112891
 	FieldStoriesUpdateAlbumTitle                            FieldID = 0xa486ee5d9550fe3c
+	FieldTelesrvGetLoginPasswordPhoneNumber                 FieldID = 0x054609d1701a306e
+	FieldTelesrvSignInWithPasswordPhoneNumber               FieldID = 0x8e426f90a0e33bb5
+	FieldTelesrvSignUpWithPasswordFirstName                 FieldID = 0xc3bacd6820e51739
+	FieldTelesrvSignUpWithPasswordLastName                  FieldID = 0x9fd64f274f2b1738
+	FieldTelesrvSignUpWithPasswordPhoneNumber               FieldID = 0x946ee19b5df22457
 	FieldToncenterPerformAPIRequestEndpoint                 FieldID = 0x24f9588f563dc846
 	FieldToncenterPerformAPIRequestPayload                  FieldID = 0x26d51d1e05a55cf2
 	FieldToncenterPerformAPIRequestQuery                    FieldID = 0x8b0d7d01ca9480df
@@ -8626,6 +8636,16 @@ func SemanticName(id SemanticID) (category, qname string, ok bool) {
 		return "function", "stories.togglePinnedToTop", true
 	case SemanticMethodStoriesUpdateAlbum:
 		return "function", "stories.updateAlbum", true
+	case SemanticMethodTelesrvGetLoginPassword:
+		return "function", "telesrv.getLoginPassword", true
+	case SemanticMethodTelesrvGetMyLoginPassword:
+		return "function", "telesrv.getMyLoginPassword", true
+	case SemanticMethodTelesrvSignInWithPassword:
+		return "function", "telesrv.signInWithPassword", true
+	case SemanticMethodTelesrvSignUpWithPassword:
+		return "function", "telesrv.signUpWithPassword", true
+	case SemanticMethodTelesrvUpdateLoginPassword:
+		return "function", "telesrv.updateLoginPassword", true
 	case SemanticMethodTestUseConfigSimple:
 		return "function", "test.useConfigSimple", true
 	case SemanticMethodTestUseError:
@@ -13765,6 +13785,16 @@ func canonicalWireID(id SemanticID) (uint32, bool) {
 		return 0x0b297e9b, true
 	case SemanticMethodStoriesUpdateAlbum:
 		return 0x5e5259b6, true
+	case SemanticMethodTelesrvGetLoginPassword:
+		return 0xe35bc783, true
+	case SemanticMethodTelesrvGetMyLoginPassword:
+		return 0x70c0eadb, true
+	case SemanticMethodTelesrvSignInWithPassword:
+		return 0xb57ee87d, true
+	case SemanticMethodTelesrvSignUpWithPassword:
+		return 0xe57cf5b6, true
+	case SemanticMethodTelesrvUpdateLoginPassword:
+		return 0x917c32ca, true
 	case SemanticMethodTestUseConfigSimple:
 		return 0xf9b7b23d, true
 	case SemanticMethodTestUseError:
@@ -18051,6 +18081,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypePageBlockTitle, true
 	case 0x70b772a8:
 		return SemanticTypeContactsTopPeers, true
+	case 0x70c0eadb:
+		return SemanticMethodTelesrvGetMyLoginPassword, true
 	case 0x70c32edb:
 		return SemanticMethodAccountChangePhone, true
 	case 0x70c4fe03:
@@ -18707,6 +18739,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticMethodUploadGetFileHashes, true
 	case 0x915860ae:
 		return SemanticMethodAccountGetDefaultGroupPhotoEmojis, true
+	case 0x917c32ca:
+		return SemanticMethodTelesrvUpdateLoginPassword, true
 	case 0x91cd32a8:
 		return SemanticMethodPhotosGetUserPhotos, true
 	case 0x91dc3f31:
@@ -19511,6 +19545,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeInlineBotWebView, true
 	case 0xb574b16b:
 		return SemanticMethodAccountSetContentSettings, true
+	case 0xb57ee87d:
+		return SemanticMethodTelesrvSignInWithPassword, true
 	case 0xb59cf977:
 		return SemanticMethodPhoneCheckGroupCall, true
 	case 0xb5a1ce5a:
@@ -20447,6 +20483,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeHelpTermsOfServiceUpdateEmpty, true
 	case 0xe34c0dd6:
 		return SemanticMethodBotsGetBotCommands, true
+	case 0xe35bc783:
+		return SemanticMethodTelesrvGetLoginPassword, true
 	case 0xe3779861:
 		return SemanticTypeAccountResetPasswordFailedWait, true
 	case 0xe3878aa4:
@@ -20495,6 +20533,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeSecureValueErrorSelfie, true
 	case 0xe56dbf05:
 		return SemanticTypeDialogPeer, true
+	case 0xe57cf5b6:
+		return SemanticMethodTelesrvSignUpWithPassword, true
 	case 0xe581e4e9:
 		return SemanticTypeRequirementToContactPremium, true
 	case 0xe58e95d2:

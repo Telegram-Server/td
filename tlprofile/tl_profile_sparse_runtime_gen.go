@@ -2572,6 +2572,11 @@ const (
 	LayerSemanticMethodStoriesTogglePinned                                             = SemanticMethodStoriesTogglePinned
 	LayerSemanticMethodStoriesTogglePinnedToTop                                        = SemanticMethodStoriesTogglePinnedToTop
 	LayerSemanticMethodStoriesUpdateAlbum                                              = SemanticMethodStoriesUpdateAlbum
+	LayerSemanticMethodTelesrvGetLoginPassword                                         = SemanticMethodTelesrvGetLoginPassword
+	LayerSemanticMethodTelesrvGetMyLoginPassword                                       = SemanticMethodTelesrvGetMyLoginPassword
+	LayerSemanticMethodTelesrvSignInWithPassword                                       = SemanticMethodTelesrvSignInWithPassword
+	LayerSemanticMethodTelesrvSignUpWithPassword                                       = SemanticMethodTelesrvSignUpWithPassword
+	LayerSemanticMethodTelesrvUpdateLoginPassword                                      = SemanticMethodTelesrvUpdateLoginPassword
 	LayerSemanticMethodTestUseConfigSimple                                             = SemanticMethodTestUseConfigSimple
 	LayerSemanticMethodTestUseError                                                    = SemanticMethodTestUseError
 	LayerSemanticMethodToncenterGetStreamingURL                                        = SemanticMethodToncenterGetStreamingURL

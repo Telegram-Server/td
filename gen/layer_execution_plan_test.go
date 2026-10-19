@@ -327,7 +327,7 @@ func TestLayerWrapperModelRealSchemaStaysCompact(t *testing.T) {
 		t.Fatal(err)
 	}
 	t.Logf("sparse wrappers bodies=%d unprofiled_invariants=%d known_rpc_ids=%d", len(model.Bodies), len(model.UnprofiledInvariants), len(model.KnownRPCWireIDs))
-	if len(model.Bodies) != 11 || len(model.UnprofiledInvariants) != 400 || len(model.KnownRPCWireIDs) < 800 {
+	if len(model.Bodies) != 11 || len(model.UnprofiledInvariants) != 403 || len(model.KnownRPCWireIDs) < 800 {
 		t.Fatalf("sparse wrapper/invariant surface drifted: bodies=%d invariants=%d known=%d", len(model.Bodies), len(model.UnprofiledInvariants), len(model.KnownRPCWireIDs))
 	}
 	vectorGuard := false

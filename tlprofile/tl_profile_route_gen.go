@@ -8218,6 +8218,13 @@ func tlLookupRoute(profile Profile, wireID uint32) (tlRoute, bool) {
 		default:
 			return tlRoute{}, false
 		}
+	case 0x70c0eadb:
+		switch profile {
+		case Profile225, Profile226, Profile227, Profile228, Profile229, Profile230:
+			return tlRoute{semantic: SemanticMethodTelesrvGetMyLoginPassword, mode: tlRouteDirect, canonicalWireID: 0x70c0eadb}, true
+		default:
+			return tlRoute{}, false
+		}
 	case 0x70c32edb:
 		switch profile {
 		case Profile225, Profile226, Profile227, Profile228, Profile229, Profile230:
@@ -10639,6 +10646,13 @@ func tlLookupRoute(profile Profile, wireID uint32) (tlRoute, bool) {
 		switch profile {
 		case Profile225, Profile226, Profile227, Profile228, Profile229, Profile230:
 			return tlRoute{semantic: SemanticMethodAccountGetDefaultGroupPhotoEmojis, mode: tlRouteDirect, canonicalWireID: 0x915860ae}, true
+		default:
+			return tlRoute{}, false
+		}
+	case 0x917c32ca:
+		switch profile {
+		case Profile225, Profile226, Profile227, Profile228, Profile229, Profile230:
+			return tlRoute{semantic: SemanticMethodTelesrvUpdateLoginPassword, mode: tlRouteDirect, canonicalWireID: 0x917c32ca}, true
 		default:
 			return tlRoute{}, false
 		}
@@ -13603,6 +13617,13 @@ func tlLookupRoute(profile Profile, wireID uint32) (tlRoute, bool) {
 		switch profile {
 		case Profile225, Profile226, Profile227, Profile228, Profile229, Profile230:
 			return tlRoute{semantic: SemanticMethodAccountSetContentSettings, mode: tlRouteDirect, canonicalWireID: 0xb574b16b}, true
+		default:
+			return tlRoute{}, false
+		}
+	case 0xb57ee87d:
+		switch profile {
+		case Profile225, Profile226, Profile227, Profile228, Profile229, Profile230:
+			return tlRoute{semantic: SemanticMethodTelesrvSignInWithPassword, mode: tlRouteDirect, canonicalWireID: 0xb57ee87d}, true
 		default:
 			return tlRoute{}, false
 		}
@@ -17042,6 +17063,13 @@ func tlLookupRoute(profile Profile, wireID uint32) (tlRoute, bool) {
 		default:
 			return tlRoute{}, false
 		}
+	case 0xe35bc783:
+		switch profile {
+		case Profile225, Profile226, Profile227, Profile228, Profile229, Profile230:
+			return tlRoute{semantic: SemanticMethodTelesrvGetLoginPassword, mode: tlRouteDirect, canonicalWireID: 0xe35bc783}, true
+		default:
+			return tlRoute{}, false
+		}
 	case 0xe3779861:
 		switch profile {
 		case Profile225, Profile226, Profile227, Profile228, Profile229, Profile230:
@@ -17215,6 +17243,13 @@ func tlLookupRoute(profile Profile, wireID uint32) (tlRoute, bool) {
 		switch profile {
 		case Profile225, Profile226, Profile227, Profile228, Profile229, Profile230:
 			return tlRoute{semantic: SemanticTypeDialogPeer, mode: tlRouteDirect, canonicalWireID: 0xe56dbf05}, true
+		default:
+			return tlRoute{}, false
+		}
+	case 0xe57cf5b6:
+		switch profile {
+		case Profile225, Profile226, Profile227, Profile228, Profile229, Profile230:
+			return tlRoute{semantic: SemanticMethodTelesrvSignUpWithPassword, mode: tlRouteDirect, canonicalWireID: 0xe57cf5b6}, true
 		default:
 			return tlRoute{}, false
 		}
@@ -21572,6 +21607,8 @@ func tlNewCanonical(wireID uint32) (bin.Object, bool) {
 		return &tg.PageBlockTitle{}, true
 	case 0x70b772a8:
 		return &tg.ContactsTopPeers{}, true
+	case 0x70c0eadb:
+		return &tg.TelesrvGetMyLoginPasswordRequest{}, true
 	case 0x70c32edb:
 		return &tg.AccountChangePhoneRequest{}, true
 	case 0x70c4fe03:
@@ -22210,6 +22247,8 @@ func tlNewCanonical(wireID uint32) (bin.Object, bool) {
 		return &tg.UploadGetFileHashesRequest{}, true
 	case 0x915860ae:
 		return &tg.AccountGetDefaultGroupPhotoEmojisRequest{}, true
+	case 0x917c32ca:
+		return &tg.TelesrvUpdateLoginPasswordRequest{}, true
 	case 0x91cd32a8:
 		return &tg.PhotosGetUserPhotosRequest{}, true
 	case 0x91dc3f31:
@@ -22994,6 +23033,8 @@ func tlNewCanonical(wireID uint32) (bin.Object, bool) {
 		return &tg.InlineBotWebView{}, true
 	case 0xb574b16b:
 		return &tg.AccountSetContentSettingsRequest{}, true
+	case 0xb57ee87d:
+		return &tg.TelesrvSignInWithPasswordRequest{}, true
 	case 0xb59cf977:
 		return &tg.PhoneCheckGroupCallRequest{}, true
 	case 0xb5a1ce5a:
@@ -23908,6 +23949,8 @@ func tlNewCanonical(wireID uint32) (bin.Object, bool) {
 		return &tg.HelpTermsOfServiceUpdateEmpty{}, true
 	case 0xe34c0dd6:
 		return &tg.BotsGetBotCommandsRequest{}, true
+	case 0xe35bc783:
+		return &tg.TelesrvGetLoginPasswordRequest{}, true
 	case 0xe3779861:
 		return &tg.AccountResetPasswordFailedWait{}, true
 	case 0xe3878aa4:
@@ -23954,6 +23997,8 @@ func tlNewCanonical(wireID uint32) (bin.Object, bool) {
 		return &tg.SecureValueErrorSelfie{}, true
 	case 0xe56dbf05:
 		return &tg.DialogPeer{}, true
+	case 0xe57cf5b6:
+		return &tg.TelesrvSignUpWithPasswordRequest{}, true
 	case 0xe581e4e9:
 		return &tg.RequirementToContactPremium{}, true
 	case 0xe58e95d2:

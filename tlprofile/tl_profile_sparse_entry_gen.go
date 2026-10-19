@@ -8013,6 +8013,31 @@ func tlLookupResultPlan(profile Profile, semantic SemanticID) (int, bool) {
 		case Profile225, Profile226, Profile227, Profile228, Profile229, Profile230:
 			return 285, true
 		}
+	case SemanticMethodTelesrvGetLoginPassword:
+		switch profile {
+		case Profile225, Profile226, Profile227, Profile228, Profile229, Profile230:
+			return 23, true
+		}
+	case SemanticMethodTelesrvGetMyLoginPassword:
+		switch profile {
+		case Profile225, Profile226, Profile227, Profile228, Profile229, Profile230:
+			return 23, true
+		}
+	case SemanticMethodTelesrvSignInWithPassword:
+		switch profile {
+		case Profile225, Profile226, Profile227, Profile228, Profile229, Profile230:
+			return 50, true
+		}
+	case SemanticMethodTelesrvSignUpWithPassword:
+		switch profile {
+		case Profile225, Profile226, Profile227, Profile228, Profile229, Profile230:
+			return 50, true
+		}
+	case SemanticMethodTelesrvUpdateLoginPassword:
+		switch profile {
+		case Profile225, Profile226, Profile227, Profile228, Profile229, Profile230:
+			return 0, true
+		}
 	case SemanticMethodTestUseConfigSimple:
 		switch profile {
 		case Profile225, Profile226, Profile227, Profile228, Profile229, Profile230:

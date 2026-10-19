@@ -15257,3 +15257,92 @@ func (s *ServerDispatcher) OnTestUseConfigSimple(f func(ctx context.Context) (*H
 
 	s.handlers[TestUseConfigSimpleRequestTypeID] = handler
 }
+
+func (s *ServerDispatcher) OnTelesrvGetLoginPassword(f func(ctx context.Context, request *TelesrvGetLoginPasswordRequest) (*AccountPassword, error)) {
+	handler := func(ctx context.Context, b *bin.Buffer) (bin.Encoder, error) {
+		var request TelesrvGetLoginPasswordRequest
+		if err := request.Decode(b); err != nil {
+			return nil, err
+		}
+
+		response, err := f(ctx, &request)
+		if err != nil {
+			return nil, err
+		}
+		return response, nil
+	}
+
+	s.handlers[TelesrvGetLoginPasswordRequestTypeID] = handler
+}
+
+func (s *ServerDispatcher) OnTelesrvSignInWithPassword(f func(ctx context.Context, request *TelesrvSignInWithPasswordRequest) (AuthAuthorizationClass, error)) {
+	handler := func(ctx context.Context, b *bin.Buffer) (bin.Encoder, error) {
+		var request TelesrvSignInWithPasswordRequest
+		if err := request.Decode(b); err != nil {
+			return nil, err
+		}
+
+		response, err := f(ctx, &request)
+		if err != nil {
+			return nil, err
+		}
+		return &AuthAuthorizationBox{Authorization: response}, nil
+	}
+
+	s.handlers[TelesrvSignInWithPasswordRequestTypeID] = handler
+}
+
+func (s *ServerDispatcher) OnTelesrvSignUpWithPassword(f func(ctx context.Context, request *TelesrvSignUpWithPasswordRequest) (AuthAuthorizationClass, error)) {
+	handler := func(ctx context.Context, b *bin.Buffer) (bin.Encoder, error) {
+		var request TelesrvSignUpWithPasswordRequest
+		if err := request.Decode(b); err != nil {
+			return nil, err
+		}
+
+		response, err := f(ctx, &request)
+		if err != nil {
+			return nil, err
+		}
+		return &AuthAuthorizationBox{Authorization: response}, nil
+	}
+
+	s.handlers[TelesrvSignUpWithPasswordRequestTypeID] = handler
+}
+
+func (s *ServerDispatcher) OnTelesrvGetMyLoginPassword(f func(ctx context.Context, flags bin.Fields) (*AccountPassword, error)) {
+	handler := func(ctx context.Context, b *bin.Buffer) (bin.Encoder, error) {
+		var request TelesrvGetMyLoginPasswordRequest
+		if err := request.Decode(b); err != nil {
+			return nil, err
+		}
+
+		response, err := f(ctx, request.Flags)
+		if err != nil {
+			return nil, err
+		}
+		return response, nil
+	}
+
+	s.handlers[TelesrvGetMyLoginPasswordRequestTypeID] = handler
+}
+
+func (s *ServerDispatcher) OnTelesrvUpdateLoginPassword(f func(ctx context.Context, request *TelesrvUpdateLoginPasswordRequest) (bool, error)) {
+	handler := func(ctx context.Context, b *bin.Buffer) (bin.Encoder, error) {
+		var request TelesrvUpdateLoginPasswordRequest
+		if err := request.Decode(b); err != nil {
+			return nil, err
+		}
+
+		response, err := f(ctx, &request)
+		if err != nil {
+			return nil, err
+		}
+		if response {
+			return &BoolBox{Bool: &BoolTrue{}}, nil
+		}
+
+		return &BoolBox{Bool: &BoolFalse{}}, nil
+	}
+
+	s.handlers[TelesrvUpdateLoginPasswordRequestTypeID] = handler
+}

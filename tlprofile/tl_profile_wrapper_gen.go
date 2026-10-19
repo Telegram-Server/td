@@ -537,6 +537,8 @@ func tlUnprofiledInvariant(wireID uint32) bool {
 		return true
 	case 0x6f02f748:
 		return true
+	case 0x70c0eadb:
+		return true
 	case 0x719c5c5e:
 		return true
 	case 0x7206e458:
@@ -628,6 +630,8 @@ func tlUnprofiledInvariant(wireID uint32) bool {
 	case 0x9156982a:
 		return true
 	case 0x915860ae:
+		return true
+	case 0x917c32ca:
 		return true
 	case 0x91dc3f31:
 		return true
@@ -874,6 +878,8 @@ func tlUnprofiledInvariant(wireID uint32) bool {
 	case 0xe2750328:
 		return true
 	case 0xe320c158:
+		return true
+	case 0xe35bc783:
 		return true
 	case 0xe39a8f03:
 		return true
@@ -1722,6 +1728,8 @@ func tlKnownRPCWireID(wireID uint32) bool {
 		return true
 	case 0x702a40e0:
 		return true
+	case 0x70c0eadb:
+		return true
 	case 0x70c32edb:
 		return true
 	case 0x719c5c5e:
@@ -1951,6 +1959,8 @@ func tlKnownRPCWireID(wireID uint32) bool {
 	case 0x9156982a:
 		return true
 	case 0x915860ae:
+		return true
+	case 0x917c32ca:
 		return true
 	case 0x91cd32a8:
 		return true
@@ -2211,6 +2221,8 @@ func tlKnownRPCWireID(wireID uint32) bool {
 	case 0xb550d328:
 		return true
 	case 0xb574b16b:
+		return true
+	case 0xb57ee87d:
 		return true
 	case 0xb59cf977:
 		return true
@@ -2526,6 +2538,8 @@ func tlKnownRPCWireID(wireID uint32) bool {
 		return true
 	case 0xe34c0dd6:
 		return true
+	case 0xe35bc783:
+		return true
 	case 0xe39a8f03:
 		return true
 	case 0xe3ac4c61:
@@ -2543,6 +2557,8 @@ func tlKnownRPCWireID(wireID uint32) bool {
 	case 0xe4cb9580:
 		return true
 	case 0xe4fca4a3:
+		return true
+	case 0xe57cf5b6:
 		return true
 	case 0xe58e95d2:
 		return true

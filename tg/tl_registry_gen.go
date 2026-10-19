@@ -2603,6 +2603,11 @@ func TypesMap() map[uint32]string {
 		InputStickerSetThumbLegacyTypeID:                                        "inputStickerSetThumbLegacy#dbaeae9",
 		TestUseErrorRequestTypeID:                                               "test.useError#ee75af01",
 		TestUseConfigSimpleRequestTypeID:                                        "test.useConfigSimple#f9b7b23d",
+		TelesrvGetLoginPasswordRequestTypeID:                                    "telesrv.getLoginPassword#e35bc783",
+		TelesrvSignInWithPasswordRequestTypeID:                                  "telesrv.signInWithPassword#b57ee87d",
+		TelesrvSignUpWithPasswordRequestTypeID:                                  "telesrv.signUpWithPassword#e57cf5b6",
+		TelesrvGetMyLoginPasswordRequestTypeID:                                  "telesrv.getMyLoginPassword#70c0eadb",
+		TelesrvUpdateLoginPasswordRequestTypeID:                                 "telesrv.updateLoginPassword#917c32ca",
 	}
 }
 
@@ -5175,6 +5180,11 @@ func NamesMap() map[string]uint32 {
 		"inputStickerSetThumbLegacy":                                        InputStickerSetThumbLegacyTypeID,
 		"test.useError":                                                     TestUseErrorRequestTypeID,
 		"test.useConfigSimple":                                              TestUseConfigSimpleRequestTypeID,
+		"telesrv.getLoginPassword":                                          TelesrvGetLoginPasswordRequestTypeID,
+		"telesrv.signInWithPassword":                                        TelesrvSignInWithPasswordRequestTypeID,
+		"telesrv.signUpWithPassword":                                        TelesrvSignUpWithPasswordRequestTypeID,
+		"telesrv.getMyLoginPassword":                                        TelesrvGetMyLoginPasswordRequestTypeID,
+		"telesrv.updateLoginPassword":                                       TelesrvUpdateLoginPasswordRequestTypeID,
 	}
 }
 
@@ -7747,6 +7757,11 @@ func TypesConstructorMap() map[uint32]func() bin.Object {
 		InputStickerSetThumbLegacyTypeID:                                        func() bin.Object { return &InputStickerSetThumbLegacy{} },
 		TestUseErrorRequestTypeID:                                               func() bin.Object { return &TestUseErrorRequest{} },
 		TestUseConfigSimpleRequestTypeID:                                        func() bin.Object { return &TestUseConfigSimpleRequest{} },
+		TelesrvGetLoginPasswordRequestTypeID:                                    func() bin.Object { return &TelesrvGetLoginPasswordRequest{} },
+		TelesrvSignInWithPasswordRequestTypeID:                                  func() bin.Object { return &TelesrvSignInWithPasswordRequest{} },
+		TelesrvSignUpWithPasswordRequestTypeID:                                  func() bin.Object { return &TelesrvSignUpWithPasswordRequest{} },
+		TelesrvGetMyLoginPasswordRequestTypeID:                                  func() bin.Object { return &TelesrvGetMyLoginPasswordRequest{} },
+		TelesrvUpdateLoginPasswordRequestTypeID:                                 func() bin.Object { return &TelesrvUpdateLoginPasswordRequest{} },
 	}
 }
 
